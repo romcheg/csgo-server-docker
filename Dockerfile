@@ -27,6 +27,7 @@ RUN apt-get clean && \
         ca-certificates \
         net-tools \
         libsdl2-2.0-0 && \
+    apt-get upgrade && \
     apt-get clean autoclean && \
     rm -rf /var/lib/apt/lists/* && \
     locale-gen en_US.UTF-8
