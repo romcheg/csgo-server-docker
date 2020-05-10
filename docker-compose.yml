@@ -1,0 +1,15 @@
+version: 3
+
+services:
+    csgo:
+        image: romcheg/csgo-dedicated-server
+        ports: 
+            - "27020:27020/udp"
+            - "27015:27015/tcp"
+            - "27015:27015/udp"
+        volumes:
+            - /home/steam/csgo/csgo/cfg:/home/ubuntu/csgo_cfg
+        environment:
+            STEAM_ACCOUNT_TOKEN: "changeme"
+            SRCDS_RCONPW: "changeme"
+            SRCDS_PWL: "changeme"
