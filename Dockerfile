@@ -2,14 +2,20 @@ FROM ubuntu:bionic
 
 LABEL authors="Roman Prykhodchenko"
 LABEL maintainer="Roman Prykhodchenko"
-LABEL description="Dedicated server of CS:GO"
+LABEL description="CS:GO"
 LABEL version="1.0.0"
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV STEAM_USER_HOMEDIR=/home/steam
-ENV STEAM_PROVISIONING_SCRIPT=/tmp/provisioning_scripts/steam_provision.txt
-ENV CS_ENTRYPOINT_SCRIPT=/tmp/provisioning_scripts/entrypoint.sh
-ENV CS_ENTRYPOINT_SCRIPT_DST=${STEAM_USER_HOMEDIR}/entrypoint.sh
+
+
+ENV CONF_DIR=/etc/csgo/vars
+ENV PROVISIONING_DIR=/tmp/provisioning_scripts
+
+ENV STEAM_USER=steam
+ENV STEAM_USER_HOMEDIR=/home/${STEAM_USER}
+ENV CS_GO_DIR=${STEAM_USER_HOMEDIR}/csgo
+
+
 
 RUN apt-get clean && \
     apt-get update && \
@@ -19,7 +25,8 @@ RUN apt-get clean && \
         lib32gcc1 \
         wget \
         ca-certificates \
-        net-tools && \
+        net-tools \
+        libsdl2-2.0-0 && \
     apt-get clean autoclean && \
     rm -rf /var/lib/apt/lists/* && \
     locale-gen en_US.UTF-8
@@ -29,9 +36,11 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-COPY provisioning_scripts /tmp/provisioning_scripts
-RUN /tmp/provisioning_scripts/provision.sh
+COPY config ${CONF_DIR}
+COPY provisioning ${PROVISIONING_DIR}
+RUN ${PROVISIONING_DIR}/provision.sh
 
 USER ${STEAM_USER}
-
 ENTRYPOINT ${CS_ENTRYPOINT_SCRIPT_DST}
+WORKDIR ${STEAM_USER_HOMEDIR}
+VOLUME ${CS_GO_DIR}/csgo/cfg/
