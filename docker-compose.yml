@@ -14,4 +14,4 @@ services:
             # https://steamcommunity.com/dev/managegameservers
             STEAM_ACCOUNT_TOKEN: "changeme"
             SRCDS_RCONPW: "changeme"
-            SRCDS_PWL: "changeme"
+            SRCDS_PW: "changeme"
