@@ -46,10 +46,14 @@ link_files() {
 }
 
 server_config() {
-    local config_dst="${CS_GO_DIR}/csgo/cfg/server.cfg"
+    local server_config_dst="${CS_GO_DIR}/csgo/cfg/server.cfg"
+    local subscriber_files_dst="${CS_GO_DIR}/csgo/subscribed_file_ids.txt"
 
-    ln "${CONF_DIR}/server.cfg" "${config_dst}"
-    chown ${STEAM_USER}:${STEAM_USER} "${config_dst}"
+    ln "${CONF_DIR}/server.cfg" "${server_config_dst}"
+    ln "${CONF_DIR}/subscribed_file_ids.txt" "${subscriber_files_dst}"
+
+    chown ${STEAM_USER}:${STEAM_USER} "${server_config_dst}"
+    chown ${STEAM_USER}:${STEAM_USER} "${subscriber_files_dst}"
 }
 
 create_user

@@ -8,10 +8,11 @@ services:
             - "27015:27015/tcp"
             - "27015:27015/udp"
         # volumes:
-        #    - /home/ubuntu/csgo_cfg:/home/steam/csgo/csgo/cfg
+        #    - /home/ubuntu/csgo:/home/steam/csgo
         environment:
             # Get a token here:
             # https://steamcommunity.com/dev/managegameservers
             STEAM_ACCOUNT_TOKEN: "changeme"
+            STEAM_AUTHKEY: "changeme"
             SRCDS_RCONPW: "changeme"
             SRCDS_PW: "changeme"

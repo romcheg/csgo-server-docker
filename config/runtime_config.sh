@@ -5,6 +5,7 @@ set -eux
 source "${CONF_DIR}/common_config.sh"
 
 STEAM_ACCOUNT_TOKEN=${STEAM_ACCOUNT_TOKEN:-""}
+STEAM_AUTHKEY=${STEAM_AUTHKEY:-""}
 SRCDS_RCONPW=${SRCDS_RCONPW:-""}
 SRCDS_PW=${SRCDS_PW:-"0"}
 

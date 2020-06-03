@@ -3,7 +3,7 @@ FROM ubuntu:bionic
 LABEL authors="Roman Prykhodchenko"
 LABEL maintainer="Roman Prykhodchenko"
 LABEL description="CS:GO"
-LABEL version="1.0.0"
+LABEL version="1.1.0"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -27,7 +27,7 @@ RUN apt-get clean && \
         ca-certificates \
         net-tools \
         libsdl2-2.0-0 && \
-    apt-get upgrade && \
+    apt-get -y upgrade && \
     apt-get clean autoclean && \
     rm -rf /var/lib/apt/lists/* && \
     locale-gen en_US.UTF-8
@@ -44,4 +44,4 @@ RUN ${PROVISIONING_DIR}/provision.sh
 USER ${STEAM_USER}
 ENTRYPOINT ${STEAM_USER_HOMEDIR}/entrypoint.sh
 WORKDIR ${STEAM_USER_HOMEDIR}
-VOLUME ${CS_GO_DIR}/csgo/cfg/
+VOLUME ${CS_GO_DIR}/

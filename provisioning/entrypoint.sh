@@ -41,3 +41,4 @@ ${CS_GO_DIR}/srcds_run \
     +rcon_password ${SRCDS_RCONPW} \
     +sv_password ${SRCDS_PW} \
     +sv_region ${SRCDS_REGION}
+    -authkey ${STEAM_AUTHKEY}
