@@ -13,6 +13,8 @@ services:
             # Get a token here:
             # https://steamcommunity.com/dev/managegameservers
             STEAM_ACCOUNT_TOKEN: "changeme"
+            # Get an auth key here:
+            # https://steamcommunity.com/dev/registerkey
             STEAM_AUTHKEY: "changeme"
             SRCDS_RCONPW: "changeme"
             SRCDS_PW: "changeme"
