@@ -40,5 +40,5 @@ ${CS_GO_DIR}/srcds_run \
     +sv_setsteamaccount ${STEAM_ACCOUNT_TOKEN} \
     +rcon_password ${SRCDS_RCONPW} \
     +sv_password ${SRCDS_PW} \
-    +sv_region ${SRCDS_REGION}
+    +sv_region ${SRCDS_REGION} \
     -authkey ${STEAM_AUTHKEY}

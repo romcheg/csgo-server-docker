@@ -3,7 +3,7 @@ FROM ubuntu:bionic
 LABEL authors="Roman Prykhodchenko"
 LABEL maintainer="Roman Prykhodchenko"
 LABEL description="CS:GO"
-LABEL version="1.1.0"
+LABEL version="1.1.1"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
